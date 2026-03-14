@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Tetris | Zent Cash Fun</title>
+        <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="shortcut icon" type="image/png" href="favicon.png">
+    </head>
+    <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img alt="zentcash-logo" loading="lazy" src="./favicon.png" width="64"> <span class="logo-text">Tetris</span></a>
+      </div>
+    </nav>
+       <section class="game">
+            <div class="container">
+                <div class="row"> 
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-5 content-container">
+                        <div id="auth">
+                            <h2 class="auth-title">Authentication</h2>
+                            <input id="email" placeholder="email">
+                            <input id="password" type="password" placeholder="password">
+                            <br>
+                            <div>
+                                <button class="register-btn" onclick="register()">Register</button>
+                                <button class="login-btn" onclick="login()">Login</button>
+                            </div>
+                            <button class="close-session-btn" onclick="closeSession()">Close Session</button>
+                        </div>
+                        <div class="userbalance">
+                            <p>Balance: </br><span id="balance">0</span></p>
+                            <button class="updatebalance" onclick="getBalance()">Update Balance</button>
+                        </div>
+                        <div class="rungames">
+                            <button class="play" onclick="play()">PLAY</button>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-5 game-container">
+                        <div id="container">
+                            <canvas id="tetris" width="240" height="400"></canvas>
+
+                            <div id="panel">
+                                <p>Score: <span id="score">0</span></p>
+                                <p>Lines: <span id="lines">0</span></p>
+                                <p>Level: <span id="level">1</span></p>
+
+                                <p>Next</p>
+                                <canvas id="next" width="80" height="80"></canvas>
+
+                                <p>Hold</p>
+                                <canvas id="hold" width="80" height="80"></canvas>
+
+                                <p>Controls</p>
+                                <p>← → Move</p>
+                                <p>↑ Rotate</p>
+                                <p>↓ Soft drop</p>
+                                <p>Space Hard drop</p>
+                                <p>C Hold piece</p>
+                                <p>P Pause Game</p>
+                            </div>
+                        </div>                    
+                    </div>
+                </div>
+            </div>
+        </section>            
+       
+        <script src="script.js" defer></script>
+    </body>
+</html>

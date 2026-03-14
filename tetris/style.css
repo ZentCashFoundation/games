@@ -1,0 +1,129 @@
+body{
+  background:#111;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+}
+
+.bg-body-tertiary {
+    background: radial-gradient(ellipse at bottom, #1b2735 5%, #090a0f 95%);
+}
+
+.navbar-brand{
+   margin-left: 1rem;
+}
+.logo-text {
+    font-size: xx-large;
+    font-weight: bold;
+    margin-left: 1rem;
+    text-transform: uppercase;
+}
+
+.nav-item {
+    font-size: 1.25rem;
+    font-weight: bolder;
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
+}
+.collapse.navbar-collapse {
+    justify-content: flex-end;
+}
+
+#container{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+canvas{
+  background:black;
+  border:2px solid #333;
+}
+button{
+  padding:10px;
+  margin:5px;
+}
+.game{
+  margin-top: 4rem;
+}
+#auth {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: auto;
+    align-items: center;
+    background: #7e7e7e;
+    min-width: 300px;
+    max-width: 350px;
+    border-radius: 1rem;
+    border: 1px solid rgb(172, 172, 172);
+    padding-bottom: 2rem;
+}
+#auth .auth-title{
+  font-size: xx-large;
+  margin: 2rem;
+}
+#auth input{
+  padding:10px;
+  margin:5px;
+  min-width:200px;
+  border-radius: 3rem;
+}
+#auth input:hover{
+  background: #e0e0e0;
+}
+#auth button{
+  padding:10px;
+  margin:5px;
+  min-width:100px;
+  border-radius: 3rem;
+}
+#auth button:hover{
+  background:#d7ffaa;
+}
+.userbalance {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: auto;
+    align-items: center;
+    background: #7e7e7e;
+    min-width: 300px;
+    max-width: 350px;
+    border-radius: 1rem;
+    border: 1px solid rgb(172, 172, 172);
+    margin-top: 2rem;
+    padding-top:2rem;
+    padding-bottom: 2rem;
+}
+.rungames{
+  margin-top: 2rem;
+  
+}
+.play{
+  border-radius: 1rem;
+
+}
+.content-container{
+  background: #4e4e4e;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-right: 2rem;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+}
+.game-container{
+  background: #1f1c1c;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-right: 2rem;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.updatebalance{
+  border-radius: 2rem;
+}
+
+#panel{
+  text-align:left;
+}
