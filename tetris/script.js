@@ -51,6 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+
+
 async function closeSession() {
     localStorage.removeItem('token');
     location.reload();
@@ -139,20 +141,20 @@ async function login() {
 }
 
 async function getBalance() {
-    const res = await fetch(API + "/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            email: email.value,
-            password: password.value
-        })
+    const res = await fetch(API + "/payment/balance", {
+        method: "GET",
+        headers: { 
+            "Authorization": "Bearer " + token,
+            "Content-Type": "application/json" 
+        },
     });
 
     const data = await res.json();
     let balance = Number(data.balance);
     balance = balance.toFixed(2);
-    document.getElementById("balance").innerText = balance;    
+    document.getElementById("balance").innerText = balance;  
 }
+
 
 async function play() {
     token = localStorage.getItem("token");
@@ -493,3 +495,9 @@ function startGame() {
     drawNext();
     update();
 }
+
+setInterval(() => {
+    if (localStorage.getItem("token")) {
+        getBalance();
+    }
+}, 300000);

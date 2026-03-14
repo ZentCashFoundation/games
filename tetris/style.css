@@ -95,6 +95,34 @@ button{
     padding-top:2rem;
     padding-bottom: 2rem;
 }
+.withdraw {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: auto;
+    align-items: center;
+    background: #7e7e7e;
+    min-width: 300px;
+    max-width: 350px;
+    border-radius: 1rem;
+    border: 1px solid rgb(172, 172, 172);
+    margin-top: 2rem;
+    padding-top:2rem;
+    padding-bottom: 2rem;
+}
+.withdraw input{
+  padding:10px;
+  margin:5px;
+  min-width:200px;
+  border-radius: 3rem;
+}
+
+.withdraw button{
+  padding:10px;
+  margin:5px;
+  min-width:100px;
+  border-radius: 3rem;
+}
 .rungames{
   margin-top: 2rem;
   
