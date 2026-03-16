@@ -228,7 +228,7 @@ async function rankinglist() {
         const tr = document.createElement("tr");
         const td = document.createElement("td");
         td.colSpan = 3;
-        td.textContent = "No hay datos.";
+        td.textContent = "There is no data.";
         td.style.textAlign = "center";
         tr.appendChild(td);
         tbody.appendChild(tr);
@@ -245,7 +245,7 @@ async function rankinglist() {
 
         // Email
         const tdEmail = document.createElement("td");
-        tdEmail.textContent = item.email;
+        tdEmail.textContent = item.nick;
         tr.appendChild(tdEmail);
 
         // Score
