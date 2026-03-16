@@ -3,6 +3,7 @@
 // =======================
 const API = "http://185.252.215.234:3000/api";
 let token = localStorage.getItem("token") || null;
+let gameSessionId = null;
 
 document.addEventListener("DOMContentLoaded", () => {
     if (document.getElementById('email').value.trim() === '') {
@@ -283,7 +284,27 @@ async function play() {
         return;
     }
 
+    gameSessionId = data.sessionId;
+    
     startGame();
+}
+
+async function sendScore() {
+
+    if (!gameSessionId) return;
+
+    await fetch(API + "/game/score", {
+        method: "POST",
+        headers: {
+            "Authorization": "Bearer " + token,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            sessionId: gameSessionId,
+            score: score
+        })
+    });
+
 }
 
 // =======================
@@ -318,6 +339,7 @@ let level = 1;
 let dropCounter = 0;
 let dropInterval = 1000;
 let lastTime = 0;
+let gameOver = false;
 
 // Estado de pausa
 let isPaused = false;
@@ -501,11 +523,10 @@ function playerReset() {
     player.pos.x = (arena[0].length / 2 | 0) - (player.matrix[0].length / 2 | 0);
 
     if (collide(arena, player)) {
-        arena.forEach(row => row.fill(0));
-        score = 0;
-        lines = 0;
-        level = 1;
-        updateScore();
+        gameOver = true;
+        sendScore();
+        alert("Game Over");
+        return;
     }
 
     canHold = true;
@@ -557,7 +578,7 @@ function updateScore() {
 // Loop principal
 // =======================
 function update(time = 0) {
-    if (!isPaused) {
+    if (!isPaused && !gameOver) {
         const delta = time - lastTime;
         lastTime = time;
 
@@ -598,8 +619,23 @@ document.addEventListener("keydown", event => {
 // Iniciar juego
 // =======================
 function startGame() {
+    gameOver = false;
+    isPaused = false;
+
+    arena.forEach(row => row.fill(0));
+
+    score = 0;
+    lines = 0;
+    level = 1;
+
+    dropCounter = 0;
+    lastTime = 0;
+
+    updateScore();
+
     playerReset();
     drawNext();
+
     update();
 }
 
