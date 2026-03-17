@@ -1,7 +1,7 @@
 // =======================
 // Configuración de API
 // =======================
-const API = "http://185.252.215.234:3000/api";
+const API = "https://api.games.zent.cash:3000/api";
 let token = localStorage.getItem("token") || null;
 let gameSessionId = null;
 
