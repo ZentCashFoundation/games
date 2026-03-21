@@ -245,7 +245,7 @@ async function rankinglist() {
 
         // Email
         const tdEmail = document.createElement("td");
-        tdEmail.textContent = item.nick;
+        tdEmail.textContent = item.username;
         tr.appendChild(tdEmail);
 
         // Score
