@@ -172,6 +172,15 @@ async function deposit2() {
 }       
 
 async function getBalance() {
+    const res2 = await fetch(API + "/payment/check", {
+        method: "GET",
+        headers: { 
+            "Authorization": "Bearer " + token,
+            "Content-Type": "application/json" 
+        },
+    });
+    let data = await res2.json();
+
     const res = await fetch(API + "/payment/balance", {
         method: "GET",
         headers: { 
@@ -180,7 +189,7 @@ async function getBalance() {
         },
     });
 
-    const data = await res.json();
+    data = await res.json();
     let balance = Number(data.balance);
     balance = balance.toFixed(2);
     document.getElementById("balance").innerText = balance;  
@@ -194,7 +203,7 @@ async function withdraw() {
             "Content-Type": "application/json" 
         },
         body: JSON.stringify({
-            destination: address.value,
+            destination: address2.value,
             amount: Number(amount.value)
         })
     });
