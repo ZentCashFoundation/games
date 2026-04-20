@@ -7,14 +7,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     const auth = document.getElementById('auth');
+    const usergetbalance = document.querySelector('.usergetbalance');
     const closeSessionBtn = document.querySelector('.close-session-btn');
+    const registerLoginBtn = document.querySelector('.register-login-btn');
     
     if (!token) {
-        
+        usergetbalance.style.display = "none";
+        registerLoginBtn.style.display = "initial";
 		closeSessionBtn.style.display = "none";
     } else {
-        auth.style.display = "none";  
+        auth.style.display = "none";
+        usergetbalance.style.display = "initial";
+        registerLoginBtn.style.display = "none";  
 		closeSessionBtn.style.display = "initial";
+        getBalance();
     }
     rankinglist()
 });

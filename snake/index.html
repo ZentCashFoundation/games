@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Snake Game | Zent Cash Fun</title>
   <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/snake.css">
@@ -11,7 +12,11 @@
   <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
      <div class="container-fluid">
        <a class="navbar-brand" href="/"><img alt="snake-logo" loading="lazy" src="assets/img/snake.png" height="48"> <span class="logo-text">Snake</span></a>
-       <button class="close-session-btn" onclick="closeSession()">Close Session</button>
+       <div class="navbar-collapse">
+          <p class="usergetbalance">Balance: <span id="balance">0.00</span></p>
+          <button class="register-login-btn">Register / Login</button>
+          <button class="close-session-btn" onclick="closeSession()">Close Session</button>
+       </div>
     </div>
   </nav>
 
@@ -25,7 +30,6 @@
           <button class="login-btn" onclick="login()">Login</button>
       </div>
   </div>
-<button class="play" onclick="play()">Play Game</button>
     <div class="row">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-6">
         <div class="games-container">      
@@ -39,11 +43,7 @@
               <p> A D W S</p>
             </div>
             <div class="hud">
-              <h3>Score:</h3>
-              <span id="score">0</span>
-              <h3>Controls:</h3>
-              <span>⬅️ ➡️ ⬆️ ⬇️</span>
-              <p> A D W S</p>
+              <button class="play" onclick="play()"><p>Play Game</p></button>
             </div>
           </div>  
         </div>  
