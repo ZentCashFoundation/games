@@ -1,0 +1,101 @@
+/* Basic Styles */  
+body{
+  background:#424141;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+}
+/* Basic Styles */
+
+/* Navigation Styles */
+.bg-body-tertiary {
+    background: radial-gradient(ellipse at bottom, #1b2735 5%, #090a0f 95%);
+}
+.navbar-brand{
+   margin-left: 1rem;
+}
+.logo-text {
+    font-size: xx-large;
+    font-weight: bold;
+    margin-left: 1rem;
+    text-transform: uppercase;
+}
+.nav-item {
+    font-size: 1.25rem;
+    font-weight: bolder;
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
+}
+.collapse.navbar-collapse {
+    justify-content: flex-end;
+}
+.close-session-btn{
+    border-radius: 1rem;
+}
+/* Navigation Styles */
+
+/* Game Styles */
+canvas {
+  background: #111;
+  border: 3px solid #0f0;
+  box-shadow: 0 0 20px #0f0;
+  border-radius: 10px;
+}
+.hud {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.9;
+}
+/* Game Styles */
+
+/* Ranking Styles */
+.ranking-container table {
+  min-width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.ranking-container table thead {
+  background: #003877;
+}
+.ranking-container table tbody {
+  background: #61abff;
+}
+.ranking-container table tbody tr{
+  border: 1px solid #000000;
+}
+.ranking-container table tbody tr:nth-child(2n+2){
+  background: #2e63a0;
+}
+/* Ranking Styles */
+
+/* Authentication Styles */
+#auth {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: auto;
+    align-items: center;
+    background: #7e7e7e;
+    min-width: 300px;
+    max-width: 350px;
+    border-radius: 1rem;
+    border: 1px solid rgb(172, 172, 172);
+    padding-bottom: 2rem;
+}
+#auth input {
+    padding: 10px;
+    margin: 5px;
+    min-width: 200px;
+    border-radius: 3rem;
+}
+#auth button {
+    padding: 10px;
+    margin: 5px;
+    min-width: 100px;
+    border-radius: 3rem;
+}
+#auth button:hover {
+    background: #d7ffaa;
+}
+/* Authentication Styles */
