@@ -1,0 +1,50 @@
+/* Navigation Styles */
+.bg-body-tertiary {
+    background: radial-gradient(ellipse at bottom, #1b2735 5%, #090a0f 95%);
+}
+.navbar-brand{
+    display: inline-flex;
+    align-items: center;
+}
+.logo-text {
+    font-size: xx-large;
+    font-weight: bold;
+    margin-left: 1rem;
+    text-transform: uppercase;
+}
+.nav-item {
+    font-size: 1.25rem;
+    font-weight: bolder;
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
+}
+.navbar-collapse {
+    justify-content: flex-end;
+}
+/* Navigation Styles */
+
+/* Main Content Styles */
+.main-content {
+    background: radial-gradient(ellipse at bottom, #1b2735 5%, #090a0f 95%);
+    color: #FFFFFF;
+    padding: 4rem 0;
+    height: 95vh;
+    display: flex;
+    align-items: center;
+}
+
+/* Footer Styles */
+.footer {
+    background: black;
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+    z-index: 5;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+}
+.footer-copyright {
+    text-align: center !important;
+}
+/* Footer Styles */
