@@ -1,16 +1,14 @@
     const canvas = document.getElementById('game');
     const ctx = canvas.getContext('2d');
     const scoreEl = document.getElementById('score');
-    const highscoreEl = document.getElementById('highscore');
+    
 
     const grid = 20;
     let count = 0;
     let gameOver = false;
 
     let score = 0;
-    let highscore = localStorage.getItem('snakeHighscore') || 0;
-    highscoreEl.textContent = highscore;
-
+        
     let snake = {
       x: 160,
       y: 160,

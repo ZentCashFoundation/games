@@ -41,11 +41,30 @@ canvas {
   box-shadow: 0 0 20px #0f0;
   border-radius: 10px;
 }
+.games-container{
+    display: flex;
+    justify-content: center;
+}
+.hud-container{
+    display: flex;
+    flex-direction: column;
+    padding-left: 3rem;
+}
 .hud {
-  margin-top: 15px;
-  text-align: center;
-  font-size: 14px;
-  opacity: 0.9;
+  background: #111;
+  border: 3px solid rgb(247, 102, 80);
+  box-shadow: 0 0 20px rgb(255, 11, 11);
+  border-radius: 10px;
+  max-height: min-content;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+.hud p {
+  padding: 0rem;
+  margin: 0rem;
+}
+.hud h3 {
+  font-style: oblique;
 }
 /* Game Styles */
 
