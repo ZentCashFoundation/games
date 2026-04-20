@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-    if (document.getElementById('email').value.trim() === '') {
+    
+    const emailInput = document.getElementById('email');
+
+    if (emailInput && emailInput.value.trim() === '') {
         const savedEmail = localStorage.getItem("email");
         if (savedEmail) {
-            document.getElementById('email').value = savedEmail;
+            emailInput.value = savedEmail;
         }
     }
     
@@ -16,7 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
         registerLoginBtn.style.display = "initial";
 		closeSessionBtn.style.display = "none";
     } else {
-        auth.style.display = "none";
+        if (auth) {
+            auth.style.display = "none";
+        }
         usergetbalance.style.display = "initial";
         registerLoginBtn.style.display = "none";  
 		closeSessionBtn.style.display = "initial";
@@ -29,3 +34,8 @@ async function closeSession() {
     localStorage.removeItem('token');
     location.reload();
 }
+
+const getCurrentYear = ()=>{
+    return new Date().getFullYear();
+}
+document.getElementById('currentyear').textContent = getCurrentYear()

@@ -1,13 +1,13 @@
 /* Basic Styles */  
 body{
+  background: radial-gradient(circle at 50% 30%, rgba(214, 177, 90, 0.4), transparent 60%), linear-gradient(135deg, #0F172A, #111827);
   color:white;
   font-family:Arial;
   text-align:center;
-  -webkit-user-select: none; /* Chrome, Safari */
-  -moz-user-select: none;    /* Firefox */
-  -ms-user-select: none;     /* IE/Edge antiguo */
+  -webkit-user-select: none; 
+  -moz-user-select: none;   
+  -ms-user-select: none;     
   user-select: none;
-  background: radial-gradient(circle at 50% 30%, rgba(214, 177, 90, 0.4), transparent 60%), linear-gradient(135deg, #0F172A, #111827);
   background-size: 300% 300%;
   animation: gradientMove 60s ease infinite;
 }
@@ -57,9 +57,16 @@ canvas {
   box-shadow: 0 0 20px #0f0;
   border-radius: 10px;
 }
+.container-games{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
 .games-container{
     display: flex;
     justify-content: center;
+    margin-bottom: 5rem;
 }
 .hud-container{
     display: flex;
@@ -112,6 +119,10 @@ canvas {
 /* Ranking Styles */
 
 /* Authentication Styles */
+.auth-container {
+    display: flex;
+    height: 95vh;
+}
 #auth {
     display: flex;
     flex-direction: column;
@@ -124,6 +135,9 @@ canvas {
     border-radius: 1rem;
     border: 1px solid rgb(172, 172, 172);
     padding-bottom: 2rem;
+}
+.auth-title  {
+    padding-top: 2rem;
 }
 #auth input {
     padding: 10px;
@@ -142,6 +156,23 @@ canvas {
 }
 /* Authentication Styles */
 
+/* Footer Styles */
+.footer {
+    background: black;
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+    z-index: 5;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+}
+.footer-copyright {
+    text-align: center !important;
+}
+/* Footer Styles */
+
+/* Animations */
 @keyframes gradient {
     0% {
         background-position: 100% 25%;
@@ -170,9 +201,9 @@ canvas {
     }
 }
 
-
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+/* Animations */

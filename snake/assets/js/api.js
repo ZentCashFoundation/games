@@ -45,7 +45,7 @@ async function login() {
 
     token = data.token;
     localStorage.setItem("token", token);
-    location.reload();
+    location.href = "./";
 }
 
 // =======================

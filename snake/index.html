@@ -2,7 +2,6 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Snake Game | Zent Cash Fun</title>
   <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/snake.css">
@@ -12,24 +11,17 @@
   <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
      <div class="container-fluid">
        <a class="navbar-brand" href="/"><img alt="snake-logo" loading="lazy" src="assets/img/snake.png" height="48"> <span class="logo-text">Snake</span></a>
-       <div class="navbar-collapse">
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="navbar-collapse" id="navbarNavDropdown">
           <p class="usergetbalance">Balance: <span id="balance">0.00</span></p>
-          <button class="register-login-btn">Register / Login</button>
+          <button class="register-login-btn" onclick="window.location.href='auth.html'">Register / Login</button>
           <button class="close-session-btn" onclick="closeSession()">Close Session</button>
        </div>
     </div>
   </nav>
-
-      <div id="auth">
-          <h2 class="auth-title">Authentication</h2>
-          <input id="email" placeholder="email">
-          <input id="password" type="password" placeholder="password">
-      <br>
-      <div>
-          <button class="register-btn" onclick="register()">Register</button>
-          <button class="login-btn" onclick="login()">Login</button>
-      </div>
-  </div>
+  <section class="container-games">  
     <div class="row">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-6">
         <div class="games-container">      
@@ -69,9 +61,15 @@
         </div>
       </div>
     </div>
+  </section>
+  <section class="footer">
+    <div class="footer-copyright">     
+      <p>Copyright &copy; <span id="currentyear">2026</span> Zent Cash Fun. All rights reserved.</p>
+    </div>
+  </section>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>   
   <script src="assets/js/api.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/snake.js"></script>
-
 </body>
 </html>
