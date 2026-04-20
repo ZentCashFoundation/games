@@ -27,7 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		closeSessionBtn.style.display = "initial";
         getBalance();
     }
-    rankinglist()
+    const rankingList = document.getElementById('ranking-body');
+    if (rankingList) {
+        rankinglist();
+    }    
 });
 
 async function closeSession() {

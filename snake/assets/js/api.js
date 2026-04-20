@@ -185,6 +185,7 @@ async function rankinglist() {
         },
         body: JSON.stringify({
             game: "snake",
+            rank: 10
         })
     });
 
