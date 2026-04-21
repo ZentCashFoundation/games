@@ -6,6 +6,7 @@
     display: inline-flex;
     align-items: center;
 }
+
 .logo-text {
     font-size: x-large;
     font-weight: bold;
@@ -13,13 +14,36 @@
     text-transform: uppercase;
 }
 .nav-item {
+    color: rgb(197, 197, 197);
     font-size: 1.25rem;
     font-weight: bolder;
-    padding-left: 1.3rem;
-    padding-right: 1.3rem;
+    text-decoration: none;
+    padding: 0.5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    border-radius: 5px;
+}
+.nav-item:hover {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    background: #1e2b3f;
 }
 .navbar-collapse {
     justify-content: flex-end;
+}
+.usergetbalance {
+    font-size: 1rem;
+    font-weight: bolder;
+    margin-right: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #FFFFFF;
+}
+.register-login-btn{
+    border-radius: 1rem;
+}
+.close-session-btn{
+    border-radius: 1rem;
 }
 /* Navigation Styles */
 
