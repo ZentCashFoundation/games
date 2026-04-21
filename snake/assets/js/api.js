@@ -179,6 +179,26 @@ async function sendScore() {
 }
 
 // ===============================
+// Funcion de obtencion de recompensa
+// ===============================
+async function fbountyjackpot() {
+    const res = await fetch(API + "/game/bountyjackpot", {
+        method: "POST",
+        headers: { 
+            "Content-Type": "application/json" 
+        },
+        body: JSON.stringify({
+            game: "snake"
+        })
+    });
+
+    data = await res.json();
+    let balance = Number(data.balance);
+    balance = balance.toFixed(2);
+    document.getElementById("bountyjackpot").innerText = balance;  
+}
+
+// ===============================
 // Funcion de listado de ranking
 // ===============================
 async function rankinglist() {
