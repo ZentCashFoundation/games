@@ -205,6 +205,48 @@ canvas {
 }
 /* Footer Styles */
 
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container-games {
+        margin-top: 3rem;
+        margin-bottom: 5rem;
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+
+    .games-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    .hud-container {
+        display: flex;
+        flex-direction: row;
+        margin-top: 2rem;
+        padding: 0;
+    }
+    .hud {
+        background: #111;
+        border: 3px solid rgb(247, 102, 80);
+        box-shadow: 0 0 20px rgb(255, 11, 11);
+        border-radius: 10px;
+        max-height: min-content;
+        height: min-content;
+        padding: 0.5rem;
+        margin: 1rem;
+    }
+    .play{
+        background: linear-gradient(107deg, #ff0000, #f1e121, #d59123, #ff2300);
+        background-size: 300% 300%;
+        padding: 0.3em 0.3em 0.3em 0.3em;
+        border-radius: 5px;
+        animation: gradient 2s linear infinite;
+        font-size: 0.8rem;
+    }
+}
+
 /* Animations */
 @keyframes gradient {
     0% {
