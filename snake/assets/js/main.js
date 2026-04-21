@@ -35,7 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const rankingList = document.getElementById('ranking-body');
     if (rankingList) {
         rankinglist();
-    }    
+    } 
+    const bountyjackpot = document.getElementById('bountyjackpot');
+    if (bountyjackpot) {
+        fbountyjackpot();
+    }   
 });
 
 async function closeSession() {

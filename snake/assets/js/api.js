@@ -182,20 +182,26 @@ async function sendScore() {
 // Funcion de obtencion de recompensa
 // ===============================
 async function fbountyjackpot() {
-    const res = await fetch(API + "/game/bountyjackpot", {
-        method: "POST",
-        headers: { 
-            "Content-Type": "application/json" 
-        },
-        body: JSON.stringify({
-            game: "snake"
-        })
-    });
+    try {
+        const res = await fetch(API + "/game/bountyjackpot", {
+            method: "POST",
+            headers: { 
+                "Content-Type": "application/json" 
+            },
+            body: JSON.stringify({
+                game: "snake"
+            })
+        });
 
-    data = await res.json();
-    let balance = Number(data.balance);
-    balance = balance.toFixed(2);
-    document.getElementById("bountyjackpot").innerText = balance;  
+        const data = await res.json();
+
+       const balance = Number(data.bountyjackpot[0].bounty ?? 0).toFixed(2);
+
+        document.getElementById("bountyjackpot").innerText = balance;
+
+    } catch (error) {
+        console.error("Error en fbountyjackpot:", error);
+    }
 }
 
 // ===============================
@@ -214,6 +220,7 @@ async function rankinglist() {
     });
 
     const data = await res.json();
+    console.log(data);
     const tbody = document.getElementById("ranking-body");
     tbody.innerHTML = ""; 
 
