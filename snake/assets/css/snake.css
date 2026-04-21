@@ -50,6 +50,31 @@ body{
 }
 /* Navigation Styles */
 
+/* Deposit Styles */
+.deposit {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    align-items: center;
+    background: #2a2a2a;
+    border-radius: 1rem;
+    border: 1px solid rgb(33, 33, 33);
+    box-shadow: 0 0 20px rgb(255, 200, 18);
+    margin-bottom: 2rem;
+}    
+.deposit p {
+    background: #303a46;
+    padding: 1rem;
+    border-radius: 1rem;
+    word-break: break-all;
+    font-size: 0.9rem;
+}
+/* Deposit Styles */
+
 /* Game Styles */
 canvas {
   background: #111;
