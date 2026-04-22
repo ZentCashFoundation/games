@@ -30,7 +30,42 @@
 				</div>
 			</div>
 		</div>
-	</section>		
+	</section>
+	<section class="dashboard-content">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h1>Dashboard</h1>
+					<p>Here you can manage your account, view your balance, and explore our exciting games!</p>
+				</div>
+				<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-6 text-center">
+					<div class="deposit">
+						<h2 class="deposit-title">Deposit</h2>
+						<h5>Address</h5>
+						<p><span id="address">...</span></p>
+						<h5>Payment ID</h5>
+						<p><span id="paymentid">...</span></p>
+						<h5>Integrated Address</h5>
+						<p><span id="integratedaddress">...</span></p>
+					</div>
+				</div>
+				<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-6 text-center">
+					<div class="userbalance">
+						<h2>Balance</h2>
+						<p id="getbalance">0.00</p>
+					</div>
+				</div>
+				<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-6 text-center">
+					<div class="changeusername">
+						<h2>Change Username</h2>
+						<input id="newusername" placeholder="New Username">
+						<button class="change-username-btn" onclick="changeUsername()">Change Username</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>	
+	
 	<section class="footer">
 		<div class="footer-copyright">
 		<audio id="background-music" autoplay loop>
