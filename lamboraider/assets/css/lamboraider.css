@@ -1,0 +1,284 @@
+/* Basic Styles */  
+body{
+  background: radial-gradient(circle at 50% 30%, rgba(214, 177, 90, 0.4), transparent 60%), linear-gradient(135deg, #0F172A, #111827);
+  color:white;
+  font-family:Arial;
+  text-align:center;
+  -webkit-user-select: none; 
+  -moz-user-select: none;   
+  -ms-user-select: none;     
+  user-select: none;
+  background-size: 300% 300%;
+  animation: gradientMove 60s ease infinite;
+}
+/* Basic Styles */
+
+/* Navigation Styles */
+.bg-body-tertiary {
+    background: radial-gradient(ellipse at bottom, #1b2735 5%, #090a0f 95%);
+}
+.navbar-brand{
+   margin-left: 1rem;
+}
+.logo-text {
+    font-size: xx-large;
+    font-weight: bold;
+    margin-left: 1rem;
+    text-transform: uppercase;
+}
+.nav-item {
+    font-size: 1.25rem;
+    font-weight: bolder;
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
+}
+.navbar-collapse {
+    justify-content: flex-end;
+}
+.usergetbalance {
+    font-size: 1rem;
+    font-weight: bolder;
+    margin-right: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.register-login-btn{
+    border-radius: 1rem;
+}
+.close-session-btn{
+    border-radius: 1rem;
+}
+/* Navigation Styles */
+
+/* Deposit Styles */
+.deposit {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    align-items: center;
+    background: #2a2a2a;
+    border-radius: 1rem;
+    border: 1px solid rgb(33, 33, 33);
+    box-shadow: 0 0 20px rgb(255, 200, 18);
+    margin-bottom: 2rem;
+}    
+.deposit p {
+    background: #303a46;
+    padding: 1rem;
+    border-radius: 1rem;
+    word-break: break-all;
+    font-size: 0.9rem;
+}
+/* Deposit Styles */
+
+/* Game Styles */
+canvas {
+  background: #111;
+  border: 3px solid #0f0;
+  box-shadow: 0 0 20px #0f0;
+  border-radius: 10px;
+}
+#game {
+  width: 100%;
+  height: fit-content;
+  max-width: 600px;
+  aspect-ratio: 1 / 1;
+  display: block;
+  margin: 0 auto;
+}
+.container-games{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+.games-container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+.hud-container{
+    display: flex;
+    flex-direction: column;
+    padding-left: 3rem;
+}
+.hud {
+  background: #111;
+  border: 3px solid rgb(247, 102, 80);
+  box-shadow: 0 0 20px rgb(255, 11, 11);
+  border-radius: 10px;
+  max-height: min-content;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+.hud p {
+  padding: 0rem;
+  margin: 0rem;
+}
+.hud h3 {
+  font-style: oblique;
+}
+.play{
+    background: linear-gradient(107deg, #ff0000, #f1e121, #d59123, #ff2300);
+    background-size: 300% 300%;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    border-radius: 5px;
+    animation: gradient 2s linear infinite;
+}
+/* Game Styles */
+
+/* Ranking Styles */
+.ranking-container table {
+  min-width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.ranking-container table thead {
+  background: #003877;
+}
+.ranking-container table tbody {
+  background: #61abff;
+}
+.ranking-container table tbody tr{
+  border: 1px solid #000000;
+}
+.ranking-container table tbody tr:nth-child(2n+2){
+  background: #2e63a0;
+}
+/* Ranking Styles */
+
+/* Authentication Styles */
+.auth-container {
+    display: flex;
+    height: 95vh;
+}
+#auth {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: auto;
+    align-items: center;
+    background: #7e7e7e;
+    min-width: 300px;
+    max-width: 350px;
+    border-radius: 1rem;
+    border: 1px solid rgb(172, 172, 172);
+    padding-bottom: 2rem;
+}
+.auth-title  {
+    padding-top: 2rem;
+}
+#auth input {
+    padding: 10px;
+    margin: 5px;
+    min-width: 200px;
+    border-radius: 3rem;
+}
+#auth button {
+    padding: 10px;
+    margin: 5px;
+    min-width: 100px;
+    border-radius: 3rem;
+}
+#auth button:hover {
+    background: #d7ffaa;
+}
+/* Authentication Styles */
+
+/* Footer Styles */
+.footer {
+    background: black;
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+    z-index: 5;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+}
+.footer-copyright {
+    text-align: center !important;
+}
+/* Footer Styles */
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container-games {
+        margin-top: 3rem;
+        margin-bottom: 5rem;
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+
+    .games-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    .hud-container {
+        display: flex;
+        flex-direction: row;
+        margin-top: 2rem;
+        padding: 0;
+    }
+    .hud {
+        background: #111;
+        border: 3px solid rgb(247, 102, 80);
+        box-shadow: 0 0 20px rgb(255, 11, 11);
+        border-radius: 10px;
+        max-height: min-content;
+        height: min-content;
+        padding: 0.5rem;
+        margin: 1rem;
+    }
+    .play{
+        background: linear-gradient(107deg, #ff0000, #f1e121, #d59123, #ff2300);
+        background-size: 300% 300%;
+        padding: 0.3em 0.3em 0.3em 0.3em;
+        border-radius: 5px;
+        animation: gradient 2s linear infinite;
+        font-size: 0.8rem;
+    }
+}
+
+/* Animations */
+@keyframes gradient {
+    0% {
+        background-position: 100% 25%;
+        transform: rotate(1deg) scale(1.05);
+    }
+
+    25% {
+        background-position: 25% 50%;
+        transform: rotate(0deg) scale(1.10);
+    }
+
+    50% {
+        background-position: 50% 75%;
+        transform: rotate(-1deg) scale(1.15);
+    }
+
+    75% {
+        background-position: 75% 100%;
+        transform: rotate(0deg) scale(1.20);
+    }
+
+    100% {
+        background-position: 100% 75%;
+        transform: rotate(1deg) scale(1.25);
+
+    }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* Animations */
