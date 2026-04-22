@@ -183,8 +183,7 @@ async function play() {
     }
 
     gameSessionId = data.sessionId;
-    init();
-    update();
+    startGame();
 }
 
 // =======================

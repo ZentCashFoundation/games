@@ -14,7 +14,7 @@ function init(){
   obstacles = [];
   score = 0;
   level = 1;
-  baseSpeed = 3;
+  baseSpeed = 2;
   keys = {};
   roadOffset = 0;
   paused = false;
@@ -29,7 +29,7 @@ function laneY(i){
 
 function drawCar(x,y,w,h,color){
   ctx.fillStyle=color; ctx.fillRect(x,y,w,h);
-  ctx.fillStyle="#ddd"; ctx.fillRect(x+10,y+5,25,20);
+  ctx.fillStyle="#e7e7e7"; ctx.fillRect(x+10,y+5,25,20);
   ctx.fillStyle="black";
   ctx.fillRect(x+5,y-3,10,5); ctx.fillRect(x+w-15,y-3,10,5);
   ctx.fillRect(x+5,y+h-2,10,5); ctx.fillRect(x+w-15,y+h-2,10,5);
@@ -112,9 +112,9 @@ function update(){
     ){
       paused = true;
       setTimeout(()=>{
-		sendScore(score);
+		    sendScore(score);
+        ctx.clearRect(0,0,canvas.width,canvas.height);
         alert("💥 Game Over | Puntos: "+score);
-        init();
       },100);
     }
 
@@ -123,7 +123,7 @@ function update(){
       score++;
       scoreEl.textContent=score;
       if(score%5===0){
-        level++; levelEl.textContent=level; baseSpeed+=0.5;
+        level++; levelEl.textContent=level; baseSpeed+=0.2;
       }
     }
   });
@@ -142,3 +142,7 @@ pauseBtn.onclick = ()=>{
 window.addEventListener("keydown",e=>keys[e.key]=true);
 window.addEventListener("keyup",e=>keys[e.key]=false);
 
+function startGame(){
+  init();
+  update();
+}
