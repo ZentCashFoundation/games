@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", async() => {
     }
     
     const userdashboard = document.querySelector('.userdashboard');
+    const dashboardcontent = document.querySelector('.dashboard-content');
+    const dashboardmessagecontent = document.querySelector('.dashboard-menssage-content');
     const usergetbalance = document.querySelector('.usergetbalance');
     const registerloginbtn = document.querySelector('.register-login-btn');
     const closesessionbtn = document.querySelector('.close-session-btn');
@@ -18,16 +20,22 @@ document.addEventListener("DOMContentLoaded", async() => {
     
     if (!token) {
         userdashboard.style.display = "none";
+        if (dashboardcontent)  {
+            dashboardcontent.style.display = "none";
+        }
         usergetbalance.style.display = "none";
         registerloginbtn.style.display = "initial";
-		    closesessionbtn.style.display = "none";
+		closesessionbtn.style.display = "none";
     } else {
         if (authuser) {
             authuser.style.display = "none";
         }
+        if (dashboardmessagecontent) {
+            dashboardmessagecontent.style.display = "none";
+        }
         usergetbalance.style.display = "initial";
         registerloginbtn.style.display = "none";  
-		    closesessionbtn.style.display = "initial";
+		closesessionbtn.style.display = "initial";
         
         getBalance().then(() => {
             const balance = document.getElementById('balance');
@@ -37,6 +45,7 @@ document.addEventListener("DOMContentLoaded", async() => {
                 userbalance.textContent = balance.textContent;
             }
         });
+        deposit();
       }  
     });
 
@@ -60,3 +69,19 @@ const getCurrentYear = ()=>{
     return new Date().getFullYear();
 }
 document.getElementById('currentyear').textContent = getCurrentYear()
+
+/** Disable right-click context menu */
+/*document.addEventListener('contextmenu', function (e) {
+  e.preventDefault();
+});
+
+document.addEventListener('keydown', function (e) {
+  if (
+    e.key === 'F12' ||
+    (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') ||
+    (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'j') ||
+    (e.ctrlKey && e.key.toLowerCase() === 'u')
+  ) {
+    e.preventDefault();
+  }
+});*/

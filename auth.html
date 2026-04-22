@@ -14,23 +14,16 @@
 			<a class="navbar-brand" href="/"><img alt="Zent Cash Fun" loading="lazy" src="assets/img/zent-cash-fun.png" height="48"> <span class="logo-text">Zent Cash Fun</span></a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 			<div class="collapse navbar-collapse" id="navbarNavDropdown">
-				<a class="nav-item userdashboard" href="dashboard.html">Dashboard</a>
+				<div class="navbar-nav">
+					<a class="nav-item" href="./">Home</a>
+					<a class="nav-item userdashboard" href="dashboard.html">Dashboard</a>
+				</div>
 				<p class="usergetbalance">Balance: <span id="balance">0.00</span></p>
           		<button class="register-login-btn" onclick="window.location.href='auth.html'">Register / Login</button>
           		<button class="close-session-btn" onclick="closeSession()">Close Session</button>
 			</div>
 		</div>
 	</nav>
-	<section class="main-content">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<h1>Welcome to Zent Cash Fun!</h1>
-					<p>Your ultimate destination for fun and entertainment.</p>
-				</div>
-			</div>
-		</div>
-	</section>
 	<section class="auth-container">
 		<div id="auth">
 			<h2 class="auth-title">Authentication</h2>

@@ -125,6 +125,32 @@ async function getBalance() {
     document.getElementById("balance").innerText = balance;  
 }
 
+// =======================
+// Funcion de cambio de nombre de usuario
+// =======================
+async function changeUsername() {
+    const username = document.getElementById("newusername").value;
+    const res = await fetch(API + "/auth/changenick", {
+        method: "POST",
+        headers: { 
+            "Authorization": "Bearer " + token,
+            "Content-Type": "application/json" 
+        },
+        body: JSON.stringify({
+            username: username
+        })
+    });
+
+    const data = await res.json();
+
+    if (data.error) {
+        alert(data.error);
+        return;
+    }
+
+    alert("Username changed");
+}
+
 // ========================================
 // Funcion de listado de costos de juegos
 // ========================================
