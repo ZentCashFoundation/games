@@ -299,8 +299,39 @@
     margin: 5px;
     min-width: 200px;
     border-radius: 3rem;
-}   
+} 
+.lastedgamesessions{
+  text-align: center;
+}
+.lastedgamesessions-container table {
+  min-width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+  text-align: center;
+}
+.lastedgamesessions-container table thead {
+  background: #1d3b00;
+}
+.lastedgamesessions-container table tbody {
+  background: #5ca75a;
+}
+.lastedgamesessions-container table tbody tr{
+  border: 1px solid #000000;
+}
+.lastedgamesessions-container table tbody tr:nth-child(2n+2){
+  background: #87ce4d;
+} 
 /* Dashboard Styles */
+
+/* Terms of Service Content Styles */
+.terms-of-service {
+    background: radial-gradient(ellipse at bottom, #1b2735 5%, #090a0f 95%);
+    color: #FFFFFF;
+    padding: 4rem 0;
+    display: flex;
+    align-items: center;
+}
+/* Terms of Service Content Styles */
 
 /* Responsive Styles */
 @media (max-width: 768px) {

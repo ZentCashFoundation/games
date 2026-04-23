@@ -261,6 +261,73 @@ async function fbountyjackpot() {
 }
 
 // ===============================
+// Funcion listado de sesiones 
+// de juego del usuario
+// ===============================
+async function gamesessionUser(rank = 10) {
+    try {
+        const res = await fetch(API + "/game/gamesessions", {
+            method: "POST",
+            headers: { 
+                "Authorization": "Bearer " + token,
+                "Content-Type": "application/json" 
+            },
+            body: JSON.stringify({           
+            })
+        });
+        const data = await res.json();
+
+        const tbody = document.getElementById("game_sessions-body");
+        tbody.innerHTML = ""; 
+
+        if (!data.game_sessions || data.game_sessions.length === 0) {
+            const tr = document.createElement("tr");
+            const td = document.createElement("td");
+            td.colSpan = 3;
+            td.textContent = "There is no data.";
+            td.style.textAlign = "center";
+            tr.appendChild(td);
+            tbody.appendChild(tr);
+            return;
+        }
+
+        data.game_sessions.slice(0, rank).forEach((item) => {
+            const tr = document.createElement("tr");
+
+            // Game
+            const tdGame = document.createElement("td");
+            tdGame.textContent = item.game;
+            tdGame.style.textTransform = "capitalize";
+            tr.appendChild(tdGame);
+
+            // Score
+            const tdScore = document.createElement("td");
+            tdScore.textContent = item.score;
+            tr.appendChild(tdScore);
+
+            // Date
+            const tdDate = document.createElement("td");
+            tdDate.textContent = item.created;
+            const date = new Date(item.created);
+            tdDate.textContent = date.toLocaleString("en-US", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit"
+            });
+
+            tr.appendChild(tdDate);
+            tbody.appendChild(tr);
+        });
+    
+
+    } catch (error) {
+        console.error("Error en game session user:", error);
+    }
+}
+
+// ===============================
 // Funcion de listado de ranking
 // ===============================
 async function rankinglist() {

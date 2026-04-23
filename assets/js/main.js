@@ -45,12 +45,22 @@ document.addEventListener("DOMContentLoaded", async() => {
                 userbalance.textContent = balance.textContent;
             }
         });
-        deposit();
+        const depositelement = document.querySelector('.deposit');
+        if (depositelement) {
+            deposit();
+        }
+        const gamesessionuser = document.getElementById('game_sessions-body');
+        if (gamesessionuser) {
+            gamesessionUser();
+        }    
       }  
     });
 
 /** Fetch game costs and display them in the UI */
-getGameCosts()  
+const getgamecosts = document.querySelector('.games-content');
+if (getgamecosts) {
+    getGameCosts();
+}
 
 /** Session management */
   async function closeSession() {
