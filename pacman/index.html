@@ -1,58 +1,91 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>HTML5 Pacman</title>
-    
-    <style type="text/css">
-      @font-face {
-	    font-family: 'BDCartoonShoutRegular';
-        src: url('BD_Cartoon_Shout-webfont.ttf') format('truetype');
-	    font-weight: normal;
-	    font-style: normal;
-      }
-      #pacman {
-        height:450px;
-        width:342px;
-        margin:20px auto;
-      }
-      #shim { 
-        font-family: BDCartoonShoutRegular; 
-        position:absolute;
-        visibility:hidden
-      }
-      h1 { font-family: BDCartoonShoutRegular; text-align:center; }
-      body { width:342px; margin:0px auto; font-family:sans-serif; }
-      a { text-decoration:none; }
-    </style>
-
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pacman Game | Zent Cash Fun</title>
+  <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/pacman.css">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
-
 <body>
-  
-  <div id="shim">shim for font face</div>
-
-  <h1>HTML5 Pacman</h1>
-
-  <a href="http://arandomurl.com/">Writeup</a> |
-  Code on <a href="http://arandomurl.com/">Github</a>
-
-  <div id="pacman"></div>
-  <script src="pacman.js"></script>
-  <script src="modernizr-1.5.min.js"></script>
-
-  <script>
-
-    var el = document.getElementById("pacman");
-
-    if (Modernizr.canvas && Modernizr.localstorage && 
-        Modernizr.audio && (Modernizr.audio.ogg || Modernizr.audio.mp3)) {
-      window.setTimeout(function () { PACMAN.init(el, "./"); }, 0);
-    } else { 
-      el.innerHTML = "Sorry, needs a decent browser<br /><small>" + 
-        "(firefox 3.6+, Chrome 4+, Opera 10+ and Safari 4+)</small>";
-    }
-  </script>
-
+  <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+     <div class="container-fluid">
+       <a class="navbar-brand" href="/"><img alt="pacman-logo" loading="lazy" src="assets/img/pacman.webp" height="48"> <span class="logo-text">Pacman</span></a>
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <p class="usergetbalance">Balance: <span id="balance">0.00</span></p>
+          <button class="register-login-btn" onclick="window.location.href='auth.html'">Register / Login</button>
+          <button class="close-session-btn" onclick="closeSession()">Close Session</button>
+       </div>
+    </div>
+  </nav>
+  <section class="container-games">  
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-6">
+        <div class="games-container"> 
+          <div id="pacman"></div> 
+          <div class="hud-container">
+            <div class="hud">
+              <h3>Bounty Jackpot</h3>
+              <span id="bountyjackpot">0</span>
+            </div>
+            <div class="hud">
+              <h3>Score</h3>
+              <span id="score">0</span>
+              <h3>Level</h3>
+              <span id="level">0</span>
+              <h3>Controls</h3>
+              <span>⬅️ ➡️ ⬆️ ⬇️</span>
+              <p> A D W S</p>
+            </div>
+            <div class="hud">
+              <button class="play" onclick="play()"><p>Play Game</p></button>
+            </div>
+          </div>  
+        </div>  
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-6">
+          <div class="deposit">
+              <h2 class="deposit-title">Deposit</h2>
+              <h5>Address</h5>
+              <p><span id="address">...</span></p>
+              <h5>Payment ID</h5>
+              <p><span id="paymentid">...</span></p>
+              <h5>Integrated Address</h5>
+              <p><span id="integratedaddress">...</span></p>
+          </div>
+          <div class="toplist">
+              <h2 class="toplist-title">Top 10 Ranking List</h2>
+                <div class="ranking-container">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Rank</th>
+                        <th>Username</th>
+                        <th>Score</th>
+                      </tr>
+                    </thead>
+                    <tbody id="ranking-body">                            
+                    </tbody>
+                  </table>
+                </div>
+          </div>
+      </div>
+    </div>
+  </section>
+  <section class="footer">
+    <div class="footer-copyright">     
+      <p>Copyright &copy; <span id="currentyear">2026</span> Zent Cash Fun. All rights reserved.</p>
+    </div>
+  </section>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>   
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/pacman.js"></script>
+  <script src="assets/js/modernizr-1.5.min.js"></script>
+  <script src="assets/js/init-pacman.js"></script>
 </body>
 </html>

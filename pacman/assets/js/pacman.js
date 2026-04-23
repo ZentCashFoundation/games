@@ -296,6 +296,7 @@ Pacman.User = function (game, map) {
         if (score >= 10000 && score - nScore < 10000) { 
             lives += 1;
         }
+        updateScoreDisplay(score);
     };
 
     function theScore() { 
@@ -803,7 +804,7 @@ var PACMAN = (function () {
     
     function dialog(text) {
         ctx.fillStyle = "#FFFF00";
-        ctx.font      = "14px BDCartoonShoutRegular";
+        ctx.font      = "24px BDCartoonShoutRegular";
         var width = ctx.measureText(text).width,
             x     = ((map.width * map.blockSize) - width) / 2;        
         ctx.fillText(text, x, (map.height * 10) + 8);
@@ -826,6 +827,7 @@ var PACMAN = (function () {
     function startNewGame() {
         setState(WAITING);
         level = 1;
+        updateLevelDisplay(level);
         user.reset();
         map.reset();
         map.draw(ctx);
@@ -833,9 +835,7 @@ var PACMAN = (function () {
     }
 
     function keyDown(e) {
-        if (e.keyCode === KEY.N) {
-            startNewGame();
-        } else if (e.keyCode === KEY.S) {
+        if (e.keyCode === KEY.S) {
             audio.disableSound();
             localStorage["soundDisabled"] = !soundDisabled();
         } else if (e.keyCode === KEY.P && state === PAUSE) {
@@ -859,6 +859,9 @@ var PACMAN = (function () {
         user.loseLife();
         if (user.getLives() > 0) {
             startLevel();
+        } else {
+            // Game over, send final score
+            sendScore(user.theScore());
         }
     }
 
@@ -968,7 +971,7 @@ var PACMAN = (function () {
         } else if (state === WAITING && stateChanged) {            
             stateChanged = false;
             map.draw(ctx);
-            dialog("Press N to start a New game");            
+            dialog("Press Play Game to start a New game");            
         } else if (state === EATEN_PAUSE && 
                    (tick - timerStart) > (Pacman.FPS / 3)) {
             map.draw(ctx);
@@ -1015,6 +1018,7 @@ var PACMAN = (function () {
     function completedLevel() {
         setState(WAITING);
         level += 1;
+        updateLevelDisplay(level);
         map.reset();
         user.newLevel();
         startLevel();
@@ -1058,12 +1062,12 @@ var PACMAN = (function () {
         var extension = Modernizr.audio.ogg ? 'ogg' : 'mp3';
 
         var audio_files = [
-            ["start", root + "./audio/opening_song." + extension],
-            ["die", root + "./audio/die." + extension],
-            ["eatghost", root + "./audio/eatghost." + extension],
-            ["eatpill", root + "./audio/eatpill." + extension],
-            ["eating", root + "./audio/eating.short." + extension],
-            ["eating2", root + "./audio/eating.short." + extension]
+            ["start", root + "./assets/audio/opening_song." + extension],
+            ["die", root + "./assets/audio/die." + extension],
+            ["eatghost", root + "./assets/audio/eatghost." + extension],
+            ["eatpill", root + "./assets/audio/eatpill." + extension],
+            ["eating", root + "./assets/audio/eating.short." + extension],
+            ["eating2", root + "./assets/audio/eating.short." + extension]
         ];
 
         load(audio_files, function() { loaded(); });
@@ -1081,7 +1085,7 @@ var PACMAN = (function () {
         
     function loaded() {
 
-        dialog("Press N to Start");
+        dialog("Call startGame() to start");
         
         document.addEventListener("keydown", keyDown, true);
         document.addEventListener("keypress", keyPress, true); 
@@ -1090,10 +1094,17 @@ var PACMAN = (function () {
     };
     
     return {
-        "init" : init
+        "init" : init,
+        "startGame" : startNewGame
     };
     
 }());
+
+window.startGame = function () {
+    if (typeof PACMAN !== 'undefined' && typeof PACMAN.startGame === 'function') {
+        PACMAN.startGame();
+    }
+};
 
 /* Human readable keyCode index */
 var KEY = {'BACKSPACE': 8, 'TAB': 9, 'NUM_PAD_CLEAR': 12, 'ENTER': 13, 'SHIFT': 16, 'CTRL': 17, 'ALT': 18, 'PAUSE': 19, 'CAPS_LOCK': 20, 'ESCAPE': 27, 'SPACEBAR': 32, 'PAGE_UP': 33, 'PAGE_DOWN': 34, 'END': 35, 'HOME': 36, 'ARROW_LEFT': 37, 'ARROW_UP': 38, 'ARROW_RIGHT': 39, 'ARROW_DOWN': 40, 'PRINT_SCREEN': 44, 'INSERT': 45, 'DELETE': 46, 'SEMICOLON': 59, 'WINDOWS_LEFT': 91, 'WINDOWS_RIGHT': 92, 'SELECT': 93, 'NUM_PAD_ASTERISK': 106, 'NUM_PAD_PLUS_SIGN': 107, 'NUM_PAD_HYPHEN-MINUS': 109, 'NUM_PAD_FULL_STOP': 110, 'NUM_PAD_SOLIDUS': 111, 'NUM_LOCK': 144, 'SCROLL_LOCK': 145, 'SEMICOLON': 186, 'EQUALS_SIGN': 187, 'COMMA': 188, 'HYPHEN-MINUS': 189, 'FULL_STOP': 190, 'SOLIDUS': 191, 'GRAVE_ACCENT': 192, 'LEFT_SQUARE_BRACKET': 219, 'REVERSE_SOLIDUS': 220, 'RIGHT_SQUARE_BRACKET': 221, 'APOSTROPHE': 222};
