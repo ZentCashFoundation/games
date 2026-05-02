@@ -56,7 +56,7 @@ async function login() {
 // Funcion de deposito
 // =======================
 async function deposit() {
-        const res = await fetch(API + "/payment/deposit", {
+        const res = await fetch(API + "/games/wallet/deposit", {
             method: "GET",
             headers: { 
                 "Authorization": "Bearer " + token,
@@ -78,7 +78,7 @@ async function deposit() {
 // Funcion de retiro
 // =======================
 async function withdraw() {
-    const res = await fetch(API + "/payment/withdraw", {
+    const res = await fetch(API + "/games/wallet/withdraw", {
         method: "POST",
         headers: { 
             "Authorization": "Bearer " + token,
@@ -102,7 +102,7 @@ async function withdraw() {
 // Funcion de balance
 // =======================
 async function getBalance() {
-    const checking = await fetch(API + "/payment/check", {
+    const checking = await fetch(API + "/games/wallet/check", {
         method: "GET",
         headers: { 
             "Authorization": "Bearer " + token,
@@ -111,7 +111,7 @@ async function getBalance() {
     });
     let data = await checking.json();
 
-    const balances = await fetch(API + "/payment/balance", {
+    const balances = await fetch(API + "/games/wallet/balance", {
         method: "GET",
         headers: { 
             "Authorization": "Bearer " + token,
@@ -166,7 +166,7 @@ async function play() {
         return;
     }
 
-    const res = await fetch(API + "/game/play", {
+    const res = await fetch(API + "/games/game/play", {
         method: "POST",
         headers: {
             "Authorization": "Bearer " + token,
@@ -195,7 +195,7 @@ async function sendScore() {
 
     if (!gameSessionId) return;
 
-    await fetch(API + "/game/score", {
+    await fetch(API + "/games/game/score", {
         method: "POST",
         headers: {
             "Authorization": "Bearer " + token,
@@ -213,7 +213,7 @@ async function sendScore() {
 // ===============================
 async function fbountyjackpot() {
     try {
-        const res = await fetch(API + "/game/bountyjackpot", {
+        const res = await fetch(API + "/games/game/bountyjackpot", {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json" 
@@ -238,7 +238,7 @@ async function fbountyjackpot() {
 // Funcion de listado de ranking
 // ===============================
 async function rankinglist() {
-    const res = await fetch(API + "/game/rankinglist", {
+    const res = await fetch(API + "/games/game/rankinglist", {
         method: "POST",
         headers: { 
             "Content-Type": "application/json" 

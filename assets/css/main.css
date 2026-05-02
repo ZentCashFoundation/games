@@ -300,6 +300,38 @@
     min-width: 200px;
     border-radius: 3rem;
 } 
+.changeemail {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    align-items: center;
+    background: #25334c;
+    border-radius: 1rem;
+    border: 1px solid rgb(139 139 139);
+    box-shadow: 0 0 20px rgb(197 197 197);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: fit-content;
+}
+.changeemail button {
+    padding: 10px;
+    margin: 5px;
+    min-width: 100px;
+    border-radius: 3rem;
+}
+.changeemail button:hover {
+    background: #f7c64a;
+}
+.changeemail input {
+    padding: 10px;
+    margin: 5px;
+    min-width: 200px;
+    border-radius: 3rem;
+}
 .lastedgamesessions{
   text-align: center;
 }

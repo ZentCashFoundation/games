@@ -125,64 +125,12 @@ async function getBalance() {
     document.getElementById("balance").innerText = balance;  
 }
 
-// =======================
-// Funcion de cambio de nombre de usuario
-// =======================
-async function changeUsername() {
-    const username = document.getElementById("newusername").value;
-    const res = await fetch(API + "/auth/changenick", {
-        method: "POST",
-        headers: { 
-            "Authorization": "Bearer " + token,
-            "Content-Type": "application/json" 
-        },
-        body: JSON.stringify({
-            username: username
-        })
-    });
-
-    const data = await res.json();
-
-    if (data.error) {
-        alert(data.error);
-        return;
-    }
-
-    alert("Username changed");
-}
-
-// =======================
-// Funcion de cambio de correo electrónico
-// =======================
-async function changeEmail() {
-    const email = document.getElementById("newemail").value;
-    const res = await fetch(API + "/auth/changeemail", {
-        method: "POST",
-        headers: { 
-            "Authorization": "Bearer " + token,
-            "Content-Type": "application/json" 
-        },
-        body: JSON.stringify({
-            email: email
-        })
-    });
-
-    const data = await res.json();
-
-    if (data.error) {
-        alert(data.error);
-        return;
-    }
-
-    alert("Email changed");
-}
-
 // ========================================
 // Funcion de listado de costos de juegos
 // ========================================
 async function getGameCosts() {
   try {
-    const response = await fetch(`${API}/games/game/list`, {
+    const response = await fetch(`${API}/game/list`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -196,7 +144,7 @@ async function getGameCosts() {
       const el = document.getElementById(id);
 
       if (el) {
-        el.textContent = Number(game.cost).toFixed(2);
+        el.textContent = game.cost;
       } else {
         console.warn(`Elemento no encontrado: ${id}`);
       }
@@ -224,7 +172,7 @@ async function play() {
             "Authorization": "Bearer " + token,
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ game: "snake" })
+        body: JSON.stringify({ game: "tetris" })
     });
 
     const data = await res.json();
@@ -235,9 +183,7 @@ async function play() {
     }
 
     gameSessionId = data.sessionId;
-    resetGame();
-    requestAnimationFrame(loop);
-    
+    startGame();    
 }
 
 // =======================
@@ -271,7 +217,7 @@ async function fbountyjackpot() {
                 "Content-Type": "application/json" 
             },
             body: JSON.stringify({
-                game: "snake"
+                game: "tetris"
             })
         });
 
@@ -287,73 +233,6 @@ async function fbountyjackpot() {
 }
 
 // ===============================
-// Funcion listado de sesiones 
-// de juego del usuario
-// ===============================
-async function gamesessionUser(rank = 10) {
-    try {
-        const res = await fetch(API + "/games/game/gamesessions", {
-            method: "POST",
-            headers: { 
-                "Authorization": "Bearer " + token,
-                "Content-Type": "application/json" 
-            },
-            body: JSON.stringify({           
-            })
-        });
-        const data = await res.json();
-
-        const tbody = document.getElementById("game_sessions-body");
-        tbody.innerHTML = ""; 
-
-        if (!data.game_sessions || data.game_sessions.length === 0) {
-            const tr = document.createElement("tr");
-            const td = document.createElement("td");
-            td.colSpan = 3;
-            td.textContent = "There is no data.";
-            td.style.textAlign = "center";
-            tr.appendChild(td);
-            tbody.appendChild(tr);
-            return;
-        }
-
-        data.game_sessions.slice(0, rank).forEach((item) => {
-            const tr = document.createElement("tr");
-
-            // Game
-            const tdGame = document.createElement("td");
-            tdGame.textContent = item.game;
-            tdGame.style.textTransform = "capitalize";
-            tr.appendChild(tdGame);
-
-            // Score
-            const tdScore = document.createElement("td");
-            tdScore.textContent = item.score;
-            tr.appendChild(tdScore);
-
-            // Date
-            const tdDate = document.createElement("td");
-            tdDate.textContent = item.created;
-            const date = new Date(item.created);
-            tdDate.textContent = date.toLocaleString("en-US", {
-                day: "2-digit",
-                month: "2-digit",
-                year: "numeric",
-                hour: "2-digit",
-                minute: "2-digit"
-            });
-
-            tr.appendChild(tdDate);
-            tbody.appendChild(tr);
-        });
-    
-
-    } catch (error) {
-        console.error("Error en game session user:", error);
-    }
-}
-
-// ===============================
 // Funcion de listado de ranking
 // ===============================
 async function rankinglist() {
@@ -363,7 +242,7 @@ async function rankinglist() {
             "Content-Type": "application/json" 
         },
         body: JSON.stringify({
-            game: "snake",
+            game: "tetris",
             rank: 10
         })
     });
