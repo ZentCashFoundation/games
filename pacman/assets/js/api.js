@@ -1,7 +1,7 @@
 // =======================
 // Configuración de API
 // =======================
-const API = "https://api.games.zent.cash:3000/api";
+const API = "https://superblockchain.zapto.org/example-api";
 var token = localStorage.getItem("token") || null;
 let gameSessionId = null;
 var game = 'pacman'; 
